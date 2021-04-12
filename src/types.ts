@@ -4,19 +4,9 @@
 export type Awaitable<T> = T | PromiseLike<T>
 
 /**
- * Null or underfind whatever
- */
-export type Nilable<T> = T | null | undefined
-
-/**
  * Null or whatever
  */
-export type Nullable<T> = T | null
-
-/**
- * Undefined or whatever
- */
-export type Undefineable<T> = T | undefined
+export type Nullable<T> = T | null | undefined
 
 /**
  * Array, or not yet
