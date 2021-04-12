@@ -6,7 +6,7 @@ Opinionated collection of common JavaScript / TypeScript utils by [@antfu](https
 
 - Tree-shakable ESM
 - Fully typed - with TSDocs
-- Type utilities - `Thenable<T>` `Arrayable<T>` etc
+- Type utilities - `Arrayable<T>`, `ElementOf<T>`, etc.
 
 > This package is designed to be used as `devDependencies` and bundled into your dist.
 

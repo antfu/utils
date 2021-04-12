@@ -1,12 +1,12 @@
 /**
  * Promise, or maybe not
  */
-export type Thenable<T> = T | Promise<T>
+export type Awaitable<T> = T | PromiseLike<T>
 
 /**
  * Null or underfind whatever
  */
-export type Nullable<T> = T | null | undefined | void
+export type Nullable<T> = T | null | undefined
 
 /**
  * Array, or not yet
