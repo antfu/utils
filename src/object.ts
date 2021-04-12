@@ -1,4 +1,4 @@
-import { isNotNull } from './guards'
+import { notNullish } from './guards'
 
 /**
  * Map key/value pairs for an object, and constructed a new one
@@ -31,6 +31,30 @@ export function objectMap<K extends string, V, NK = K, NV = V>(
   return Object.fromEntries(
     Object.entries(obj)
       .map(([k, v]) => fn(k as K, v as V))
-      .filter(isNotNull),
+      .filter(notNullish),
   )
+}
+
+/**
+ * Type guard for any key, `k`.
+ * Marks `k` as a key of `T` if `k` is in `obj`.
+ * @param obj object to query for key `k`
+ * @param k key to check existence in `obj`
+ */
+export function isKeyOf<T extends object>(obj: T, k: keyof any): k is keyof T {
+  return k in obj
+}
+
+/**
+* Strict typed `Object.keys`
+*/
+export function objectKeys<T extends object>(obj: T) {
+  return Object.keys(obj) as Array<keyof T>
+}
+
+/**
+* Strict typed `Object.entries`
+*/
+export function objectEntries<T extends object>(obj: T) {
+  return Object.entries(obj) as Array<[keyof T, T[keyof T]]>
 }
