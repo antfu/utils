@@ -1,6 +1,6 @@
 {
   "name": "@antfu/utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
