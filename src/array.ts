@@ -40,8 +40,32 @@ export function uniq<T>(array: readonly T[]): T[] {
   return Array.from(new Set(array))
 }
 
+export function last(array: readonly []): undefined
+export function last<T>(array: readonly T[]): T
 export function last<T>(array: readonly T[]): T | undefined {
-  if (!array.length)
+  return at(array, -1)
+}
+
+export function remove<T>(array: T[], value: T) {
+  const index = array.indexOf(value)
+  if (index >= 0) {
+    array.splice(index, 1)
+    return true
+  }
+  return false
+}
+
+export function at(array: readonly [], index: number): undefined
+export function at<T>(array: readonly T[], index: number): T
+export function at<T>(array: readonly T[] | [], index: number): T | undefined {
+  const len = array.length
+  if (!len)
     return undefined
-  return array[array.length - 1]
+
+  index = index % len
+
+  if (index < 0)
+    index += len
+
+  return array[index]
 }
