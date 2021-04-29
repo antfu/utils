@@ -5,6 +5,9 @@ import { DeepMerge } from './types'
 /**
  * Map key/value pairs for an object, and constructed a new one
  *
+ *
+ * @category Object
+ *
  * Transform:
  * @example
  * ```
@@ -40,6 +43,8 @@ export function objectMap<K extends string, V, NK = K, NV = V>(
 /**
  * Type guard for any key, `k`.
  * Marks `k` as a key of `T` if `k` is in `obj`.
+ *
+ * @category Object
  * @param obj object to query for key `k`
  * @param k key to check existence in `obj`
  */
@@ -48,21 +53,27 @@ export function isKeyOf<T extends object>(obj: T, k: keyof any): k is keyof T {
 }
 
 /**
-* Strict typed `Object.keys`
-*/
+ * Strict typed `Object.keys`
+ *
+ * @category Object
+ */
 export function objectKeys<T extends object>(obj: T) {
   return Object.keys(obj) as Array<keyof T>
 }
 
 /**
-* Strict typed `Object.entries`
-*/
+ * Strict typed `Object.entries`
+ *
+ * @category Object
+ */
 export function objectEntries<T extends object>(obj: T) {
   return Object.entries(obj) as Array<[keyof T, T[keyof T]]>
 }
 
 /**
  * Deep merge :P
+ *
+ * @category Object
  */
 export function deepMerge<T extends object = object, S extends object = T>(target: T, ...sources: S[]): DeepMerge<T, S> {
   if (!sources.length)
@@ -95,4 +106,16 @@ export function deepMerge<T extends object = object, S extends object = T>(targe
 
 function isMergableObject(item: any): item is Object {
   return isObject(item) && !Array.isArray(item)
+}
+
+/**
+ * Create a new subset object by giving keys
+ *
+ * @category Object
+ */
+export function objectPick<O, T extends keyof O>(obj: O, keys: T[]) {
+  return keys.reduce((n, k) => {
+    n[k] = obj[k]
+    return n
+  }, {} as Pick<O, T>)
 }
