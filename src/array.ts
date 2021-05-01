@@ -1,3 +1,4 @@
+import { clamp } from './math'
 import { Arrayable, Nullable } from './types'
 
 /**
@@ -124,4 +125,26 @@ export function range(...args: any): number[] {
   }
 
   return arr
+}
+
+/**
+ * Move element in an Array
+ *
+ * @category Array
+ * @param arr
+ * @param from
+ * @param to
+ */
+export function move<T>(arr: T[], from: number, to: number) {
+  arr.splice(to, 0, arr.splice(from, 1)[0])
+  return arr
+}
+
+/**
+ * Clamp a number to the index ranage of an array
+ *
+ * @category Array
+ */
+export function clampArrayRange(n: number, arr: readonly unknown[]) {
+  return clamp(n, 0, arr.length - 1)
 }
