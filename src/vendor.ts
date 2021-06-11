@@ -1,1 +1,1 @@
-export * from 'throttle-debounce'
+export { throttle, debounce } from 'throttle-debounce'

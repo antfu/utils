@@ -27,7 +27,7 @@
     "prepublishOnly": "npm run build",
     "dev": "npm run build -- --watch",
     "start": "esno src/index.ts",
-    "build": "tsup src/index.ts --format cjs,esm --dts --dts-resolve",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "release": "bumpp --commit --push --tag && npm publish",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
