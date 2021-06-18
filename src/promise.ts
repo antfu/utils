@@ -4,7 +4,7 @@ export interface SingletonPromiseReturn<T> {
   (): Promise<T>
   /**
    * Reset current staled promise.
-   * await it to have proper shutdown.
+   * Await it to have proper shutdown.
    */
   reset: () => Promise<void>
 }
