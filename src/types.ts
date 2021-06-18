@@ -19,9 +19,9 @@ export type Arrayable<T> = T | Array<T>
 export type Fn<T = void> = () => T
 
 /**
- * Class
+ * Constructor
  */
-export type Class<T = void> = new (...args: any[]) => T
+export type Constructor<T = void> = new (...args: any[]) => T
 
 /**
  * Infers the element type of an array
