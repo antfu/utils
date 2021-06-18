@@ -1,7 +1,7 @@
 import { Fn, Nullable } from './types'
 
 /**
- * Call every functions in an array
+ * Call every function in an array
  */
 export function batchInvoke(functions: Nullable<Fn>[]) {
   functions.forEach(fn => fn && fn())
@@ -15,7 +15,7 @@ export function invoke(fn: Fn) {
 }
 
 /**
- * Pass the value through the callback, and return the value.
+ * Pass the value through the callback, and return the value
  *
  * @example
  * ```
