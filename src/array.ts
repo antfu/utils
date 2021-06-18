@@ -14,7 +14,7 @@ export function toArray<T>(array?: Nullable<Arrayable<T>>): Array<T> {
 }
 
 /**
- * Convert `Arrayable<T>` to `Array<T>` and flat it
+ * Convert `Arrayable<T>` to `Array<T>` and flatten it
  *
  * @category Array
  */
@@ -32,7 +32,7 @@ export function mergeArrayable<T>(...args: Nullable<Arrayable<T>>[]): Array<T> {
 }
 
 /**
- * Divide an array into two parts by a filter function.
+ * Divide an array into two parts by a filter function
  *
  * @category Array
  * @example const [odd, even] = partition([1, 2, 3, 4], i => i % 2 != 0)

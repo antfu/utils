@@ -119,7 +119,7 @@ export function objectPick<O, T extends keyof O>(obj: O, keys: T[], omitUndefine
 }
 
 /**
- * Create create undefined fields from an object. It mutate the object
+ * Clear undefined fields from an object. It mutates the object
  *
  * @category Object
  */
