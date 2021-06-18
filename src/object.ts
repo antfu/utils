@@ -3,7 +3,7 @@ import { isObject } from './is'
 import { DeepMerge } from './types'
 
 /**
- * Map key/value pairs for an object, and constructed a new one
+ * Map key/value pairs for an object, and construct a new one
  *
  *
  * @category Object
@@ -127,4 +127,15 @@ export function clearUndefined<T extends object>(obj: T): T {
   // @ts-expect-error
   Object.keys(obj).forEach((key: string) => (obj[key] === undefined ? delete obj[key] : {}))
   return obj
+}
+
+/**
+ * Determines whether an object has a property with the specified name
+ *
+ * @see https://eslint.org/docs/rules/no-prototype-builtins
+ * @category Object
+ */
+export function hasOwnProperty<T>(obj: T, v: PropertyKey) {
+  if (obj == null) return false
+  return Object.prototype.hasOwnProperty.call(obj, v)
 }
