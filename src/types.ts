@@ -19,6 +19,11 @@ export type Arrayable<T> = T | Array<T>
 export type Fn<T = void> = () => T
 
 /**
+ * Constructor
+ */
+export type Constructor<T = void> = new (...args: any[]) => T
+
+/**
  * Infers the element type of an array
  */
 export type ElementOf<T> = T extends (infer E)[] ? E : never
