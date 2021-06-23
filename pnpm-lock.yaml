@@ -17,12 +17,14 @@ specifiers:
   tsup: ^4.11.2
   typescript: ^4.3.4
 
+dependencies:
+  '@types/throttle-debounce': 2.1.0
+
 devDependencies:
   '@antfu/eslint-config': 0.6.6_eslint@7.29.0+typescript@4.3.4
   '@antfu/ni': 0.7.0
   '@types/jest': 26.0.23
   '@types/node': 15.12.4
-  '@types/throttle-debounce': 2.1.0
   bumpp: 6.0.6
   eslint: 7.29.0
   eslint-plugin-jest: 24.3.6_eslint@7.29.0+typescript@4.3.4
@@ -822,7 +824,7 @@ packages:
 
   /@types/throttle-debounce/2.1.0:
     resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
-    dev: true
+    dev: false
 
   /@types/yargs-parser/20.2.0:
     resolution: {integrity: sha512-37RSHht+gzzgYeobbG+KWryeAW8J33Nhr69cjTqSYymXVZEN9NbRYWoYlRtDhHKPVT1FyNKwaTPC1NynKZpzRA==}
