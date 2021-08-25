@@ -37,19 +37,19 @@
     "@types/throttle-debounce": "^2.1.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.6.6",
+    "@antfu/eslint-config": "^0.7.0",
     "@antfu/ni": "^0.7.0",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.4",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.1",
     "bumpp": "^6.0.6",
-    "eslint": "^7.29.0",
-    "eslint-plugin-jest": "^24.3.6",
-    "esno": "^0.7.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "esno": "^0.9.1",
     "git-ensure": "^0.1.0",
-    "jest": "^27.0.5",
+    "jest": "^27.0.6",
     "throttle-debounce": "^3.0.1",
-    "ts-jest": "^27.0.3",
-    "tsup": "^4.11.2",
-    "typescript": "^4.3.4"
+    "ts-jest": "^27.0.5",
+    "tsup": "^4.14.0",
+    "typescript": "^4.3.5"
   }
 }
