@@ -1,6 +1,6 @@
 import { notNullish } from './guards'
 import { isObject } from './is'
-import { DeepMerge } from './types'
+import type { DeepMerge } from './types'
 
 /**
  * Map key/value pairs for an object, and construct a new one

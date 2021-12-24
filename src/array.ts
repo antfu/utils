@@ -1,5 +1,5 @@
 import { clamp } from './math'
-import { Arrayable, Nullable } from './types'
+import type { Arrayable, Nullable } from './types'
 
 /**
  * Convert `Arrayable<T>` to `Array<T>`

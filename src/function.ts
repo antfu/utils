@@ -1,4 +1,4 @@
-import { Fn, Nullable } from './types'
+import type { Fn, Nullable } from './types'
 
 /**
  * Call every function in an array

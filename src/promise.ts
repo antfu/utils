@@ -1,5 +1,5 @@
 import { remove } from './array'
-import { Fn } from './types'
+import type { Fn } from './types'
 
 export interface SingletonPromiseReturn<T> {
   (): Promise<T>
