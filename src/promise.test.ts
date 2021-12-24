@@ -1,3 +1,4 @@
+import { expect, it } from 'vitest'
 import { createSingletonPromise, sleep } from './promise'
 
 it('promise', async() => {

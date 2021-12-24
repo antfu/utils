@@ -1,3 +1,4 @@
+import { expect, it } from 'vitest'
 import { flattenArrayable, partition, range } from './array'
 
 it('flattenArrayable', () => {
