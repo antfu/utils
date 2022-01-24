@@ -19,6 +19,17 @@ export function ensurePrefix(prefix: string, str: string) {
 }
 
 /**
+ * Ensure suffix of a string
+ *
+ * @category String
+ */
+export function ensureSuffix(suffix: string, str: string) {
+  if (!str.endsWith(suffix))
+    return str + suffix
+  return str
+}
+
+/**
  * Dead simple template engine, just like Python's `.format()`
  *
  * @example
