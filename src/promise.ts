@@ -13,14 +13,7 @@ export interface SingletonPromiseReturn<T> {
 /**
  * Create singleton promise function
  *
- * @example
- * ```
- * const promise = createSingletonPromise(async () => { ... })
- *
- * await promise()
- * await promise() // all of them will be bind to a single promise instance
- * await promise() // and be resolved together
- * ```
+ * @category Promise
  */
 export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromiseReturn<T> {
   let _promise: Promise<T> | undefined
@@ -42,6 +35,8 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
 
 /**
  * Promised `setTimeout`
+ * 
+ * @category Promise
  */
 export function sleep(ms: number, callback?: Fn<any>) {
   return new Promise<void>(resolve =>
@@ -55,6 +50,7 @@ export function sleep(ms: number, callback?: Fn<any>) {
 /**
  * Create a promise lock
  *
+ * @category Promise
  * @example
  * ```
  * const lock = createPromiseLock()

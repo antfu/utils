@@ -32,6 +32,7 @@ export function ensureSuffix(suffix: string, str: string) {
 /**
  * Dead simple template engine, just like Python's `.format()`
  *
+ * @category String
  * @example
  * ```
  * const result = template(
