@@ -35,7 +35,7 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
 
 /**
  * Promised `setTimeout`
- * 
+ *
  * @category Promise
  */
 export function sleep(ms: number, callback?: Fn<any>) {

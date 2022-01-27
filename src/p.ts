@@ -98,15 +98,15 @@ class PInstance<T = any> extends Promise<Awaited<T>[]> {
 
 /**
  * Utility for managing multiple promises.
- * 
+ *
  * @see https://github.com/antfu/utils/tree/main/docs/p.md
  * @category Promise
  * @example
  * ```
  * import { p } from '@antfu/utils'
- * 
+ *
  * const items = [1, 2, 3, 4, 5]
- * 
+ *
  * await p(items)
  *   .map(async i => await multiply(i, 3))
  *   .filter(async i => await isEven(i))
