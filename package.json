@@ -1,6 +1,6 @@
 {
   "name": "@antfu/utils",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
   "keywords": [
     "utils"
