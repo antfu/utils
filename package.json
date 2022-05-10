@@ -34,11 +34,12 @@
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
-    "dev": "npm run build -- --watch",
+    "dev": "nr build --watch",
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish",
     "start": "esno src/index.ts",
+    "typecheck": "tsc --noEmit",
     "test": "vitest"
   },
   "devDependencies": {
