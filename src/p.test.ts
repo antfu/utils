@@ -4,10 +4,10 @@ import { p as P } from './p'
 const timeout = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 describe('should', () => {
-  it('p', async() => {
+  it('p', async () => {
     const p = P()
     let dummy = 0
-    p.add((async() => {
+    p.add((async () => {
       await timeout(100)
       dummy += 1
       return 4
@@ -17,10 +17,10 @@ describe('should', () => {
     expect(dummy).toBe(1)
   })
 
-  it('chain array map', async() => {
+  it('chain array map', async () => {
     expect(
       await P([1, 2, 3, 4, 5])
-        .map(async(i) => {
+        .map(async (i) => {
           await timeout(10)
           return i * i
         })
@@ -30,10 +30,10 @@ describe('should', () => {
       .toEqual(41)
   })
 
-  it('concurrency: 1', async() => {
+  it('concurrency: 1', async () => {
     let running = 0
 
-    const promises = Array.from({ length: 100 }, async(_, i: number) => {
+    const promises = Array.from({ length: 100 }, async (_, i: number) => {
       running++
       expect(running).to.be.lessThanOrEqual(1)
       running--
@@ -44,10 +44,10 @@ describe('should', () => {
     expect(results).to.be.equal(4950)
   })
 
-  it('concurrency: 4', async() => {
+  it('concurrency: 4', async () => {
     let running = 0
 
-    const promises = Array.from({ length: 100 }, async() => {
+    const promises = Array.from({ length: 100 }, async () => {
       running++
       expect(running).to.be.lessThanOrEqual(4)
       running--
@@ -56,7 +56,7 @@ describe('should', () => {
     await P(promises, { concurrency: 4 })
   })
 
-  it('fails with wrong format', async() => {
+  it('fails with wrong format', async () => {
     try {
       await P([], { concurrency: 1.5 })
     }

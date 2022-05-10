@@ -23,7 +23,7 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
       _promise = fn()
     return _promise
   }
-  wrapper.reset = async() => {
+  wrapper.reset = async () => {
     const _prev = _promise
     _promise = undefined
     if (_prev)
@@ -40,7 +40,7 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
  */
 export function sleep(ms: number, callback?: Fn<any>) {
   return new Promise<void>(resolve =>
-    setTimeout(async() => {
+    setTimeout(async () => {
       await callback?.()
       resolve()
     }, ms),

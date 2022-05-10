@@ -7,14 +7,14 @@ Utility for managing multiple promises.
 ```ts
 const items = [1, 2, 3, 4, 5]
 
-(await Promise.all(items
-  .map(async i => {
+;(await Promise.all(items
+  .map(async (i) => {
     const v = await multiply(i, 3)
     const even = await isEven(v)
     return [even, v]
   })))
-    .filter(x => x[0])
-    .map(x => x[1])
+  .filter(x => x[0])
+  .map(x => x[1])
 ```
 
 ## With

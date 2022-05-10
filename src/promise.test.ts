@@ -1,10 +1,10 @@
 import { expect, it } from 'vitest'
 import { createSingletonPromise, sleep } from './promise'
 
-it('promise', async() => {
+it('promise', async () => {
   let dummy = 0
 
-  const promise = createSingletonPromise(async() => {
+  const promise = createSingletonPromise(async () => {
     sleep(10)
     dummy += 1
     return dummy
