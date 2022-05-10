@@ -166,3 +166,25 @@ export function move<T>(arr: T[], from: number, to: number) {
 export function clampArrayRange(n: number, arr: readonly unknown[]) {
   return clamp(n, 0, arr.length - 1)
 }
+
+/**
+ * Get random items from an array
+ *
+ * @category Array
+ */
+export function sample<T>(arr: T[], count: number) {
+  return Array.from({ length: count }, _ => arr[Math.round(Math.random() * (arr.length - 1))])
+}
+
+/**
+ * Shuffle an array. This function mutates the array.
+ *
+ * @category Array
+ */
+export function shuffle<T>(array: T[]): T[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
+}
