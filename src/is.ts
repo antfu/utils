@@ -7,7 +7,5 @@ export const isNumber = (val: any): val is number => typeof val === 'number'
 export const isString = (val: unknown): val is string => typeof val === 'string'
 export const isObject = (val: any): val is object => toString(val) === '[object Object]'
 
-// @ts-ignore
 export const isWindow = (val: any): boolean => typeof window !== 'undefined' && toString(val) === '[object Window]'
-// @ts-ignore
 export const isBrowser = typeof window !== 'undefined'
