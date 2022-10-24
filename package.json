@@ -1,6 +1,6 @@
 {
   "name": "@antfu/utils",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "packageManager": "pnpm@7.0.1",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
   "keywords": [
