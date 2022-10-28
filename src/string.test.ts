@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { template } from './string'
+import { ensurePrefix, ensureSuffix, slash, template } from './string'
 
 it('template', () => {
   expect(
@@ -32,4 +32,20 @@ it('template', () => {
       '',
     ),
   ).toEqual('Hi')
+})
+
+it('slash', () => {
+  expect(slash('\\123')).toEqual('/123')
+  expect(slash('\\\\')).toEqual('//')
+  expect(slash('\\\h\\\i')).toEqual('/h/i')
+})
+
+it('ensurePrefix', () => {
+  expect(ensurePrefix('abc', 'abcdef')).toEqual('abcdef')
+  expect(ensurePrefix('hi ', 'jack')).toEqual('hi jack')
+})
+
+it('ensureSuffix', () => {
+  expect(ensureSuffix('world', 'hello ')).toEqual('hello world')
+  expect(ensureSuffix('123', 'abc123')).toEqual('abc123')
 })
