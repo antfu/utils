@@ -7,10 +7,8 @@ import type { Arrayable, Nullable } from './types'
  * @category Array
  */
 export function toArray<T>(array?: Nullable<Arrayable<T>>): Array<T> {
-  array = array || []
-  if (Array.isArray(array))
-    return array
-  return [array]
+  array = array ?? []
+  return Array.isArray(array) ? array : [array]
 }
 
 /**
