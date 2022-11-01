@@ -16,7 +16,7 @@ specifiers:
   rollup: ^2.72.1
   rollup-plugin-dts: ^4.2.1
   rollup-plugin-esbuild: ^4.10.1
-  throttle-debounce: ^5.0.0
+  throttle-debounce: 3.0.1
   typescript: ^4.8.4
   vite: ^3.1.8
   vitest: ^0.24.3
@@ -37,7 +37,7 @@ devDependencies:
   rollup: 2.78.1
   rollup-plugin-dts: 4.2.3_rgdoxrudhz5lxzgmaosvkjax6q
   rollup-plugin-esbuild: 4.10.1_rollup@2.78.1
-  throttle-debounce: 5.0.0
+  throttle-debounce: 3.0.1
   typescript: 4.8.4
   vite: 3.1.8
   vitest: 0.24.3
@@ -2635,9 +2635,9 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
-  /throttle-debounce/5.0.0:
-    resolution: {integrity: sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==}
-    engines: {node: '>=12.22'}
+  /throttle-debounce/3.0.1:
+    resolution: {integrity: sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==}
+    engines: {node: '>=10'}
     dev: true
 
   /tinybench/2.3.1:

@@ -58,7 +58,7 @@
     "rollup": "^2.72.1",
     "rollup-plugin-dts": "^4.2.1",
     "rollup-plugin-esbuild": "^4.10.1",
-    "throttle-debounce": "^5.0.0",
+    "throttle-debounce": "3.0.1",
     "typescript": "^4.8.4",
     "vite": "^3.1.8",
     "vitest": "^0.24.3"
