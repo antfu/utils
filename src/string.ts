@@ -69,12 +69,12 @@ export function randomStr(size = 16, dict = urlAlphabet) {
 
 /**
  * First letter uppercase, other lowercase
- * ```
  * @category string
  * @example
+ * ```
  * capitalize('hello') => 'Hello'
  * ```
  */
 export function capitalize(str: string): string {
-  return str[0].toUpperCase() + str.substring(1).toLowerCase()
+  return str[0].toUpperCase() + str.slice(1).toLowerCase()
 }
