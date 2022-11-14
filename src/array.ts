@@ -1,4 +1,5 @@
 import { clamp } from './math'
+import { getType } from './base'
 import type { Arrayable, Nullable } from './types'
 
 /**
@@ -67,6 +68,47 @@ export function partition<T>(array: readonly T[], ...filters: PartitionFilter<T>
  */
 export function uniq<T>(array: readonly T[]): T[] {
   return Array.from(new Set(array))
+}
+
+/**
+ * Unique an muti-type Array
+ *
+ * @category Array
+ */
+export function uniqMutiType<T>(array: readonly T[]): T[] {
+  return array.reduce((acc: Array<T>, cur: any) => {
+    const isExist = acc.findIndex((item: any) => isEqual(cur, item));
+    if (isExist === -1) {
+      acc.push(cur);
+    }
+    return acc;
+  }, []);
+  
+  function isEqual(target1: any, target2: any): boolean {
+    const t1 = getType(target1);
+    const t2 = getType(target2);
+    if (t1 !== t2) {
+      return false;
+    }
+    if (t1 === 'array') {
+      if (target1.length !== target2.length) {
+        return false;
+      }
+      return target1.every((item: any, i: number) => {
+        return isEqual(item, target2[i]);
+      });
+    }
+    if (t1 === 'object') {
+      const keyArr = Object.keys(target1);
+      if (keyArr.length !== Object.keys(target2).length) {
+        return false;
+      }
+      return keyArr.every((key: string) => {
+        return isEqual(target1[key], target2[key]);
+      });
+    }
+    return target1 === target2;
+  }  
 }
 
 /**
