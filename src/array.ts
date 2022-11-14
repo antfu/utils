@@ -75,7 +75,7 @@ export function uniq<T>(array: readonly T[]): T[] {
  *
  * @category Array
  */
-export function uniqMutiType<T>(array: readonly T[]): T[] {
+export function uniqMutiType<T>(array: T[]): T[] {
   return array.reduce((acc: Array<T>, cur: any) => {
     const isExist = acc.findIndex((item: any) => isEqual(cur, item));
     if (isExist === -1) {
