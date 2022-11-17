@@ -1,5 +1,5 @@
 import { clamp } from './math'
-import { getType } from './base'
+import { isDeepEqual } from './equal'
 import type { Arrayable, Nullable } from './types'
 
 /**
@@ -71,44 +71,18 @@ export function uniq<T>(array: readonly T[]): T[] {
 }
 
 /**
- * Unique an muti-type Array
+ * Unique an Array(one type or muti-type)
  *
  * @category Array
  */
-export function uniqMutiType<T>(array: T[]): T[] {
-  return array.reduce((acc: Array<T>, cur: any) => {
-    const isExist = acc.findIndex((item: any) => isEqual(cur, item));
-    if (isExist === -1) {
+export function uniqueBy<T>(array: readonly T[], equalFn = isDeepEqual): T[] {
+  return array.reduce((acc: T[], cur: any) => {
+    const index = acc.findIndex((item: any) => equalFn(cur, item));
+    if (index === -1) {
       acc.push(cur);
     }
     return acc;
   }, []);
-  
-  function isEqual(target1: any, target2: any): boolean {
-    const t1 = getType(target1);
-    const t2 = getType(target2);
-    if (t1 !== t2) {
-      return false;
-    }
-    if (t1 === 'array') {
-      if (target1.length !== target2.length) {
-        return false;
-      }
-      return target1.every((item: any, i: number) => {
-        return isEqual(item, target2[i]);
-      });
-    }
-    if (t1 === 'object') {
-      const keyArr = Object.keys(target1);
-      if (keyArr.length !== Object.keys(target2).length) {
-        return false;
-      }
-      return keyArr.every((key: string) => {
-        return isEqual(target1[key], target2[key]);
-      });
-    }
-    return target1 === target2;
-  }  
 }
 
 /**
