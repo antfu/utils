@@ -1,5 +1,6 @@
 {
   "name": "@antfu/utils",
+  "type": "module",
   "version": "0.6.3",
   "packageManager": "pnpm@7.0.1",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
@@ -43,24 +44,24 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.27.0",
-    "@antfu/ni": "^0.18.2",
-    "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/node": "^18.11.4",
+    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/ni": "^0.18.8",
+    "@rollup/plugin-alias": "^4.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.11.9",
     "@types/throttle-debounce": "^5.0.0",
     "bumpp": "^8.2.1",
-    "eslint": "^8.26.0",
+    "eslint": "^8.28.0",
     "esno": "^0.16.3",
     "p-limit": "^4.0.0",
-    "rollup": "^2.72.1",
-    "rollup-plugin-dts": "^4.2.1",
-    "rollup-plugin-esbuild": "^4.10.1",
-    "throttle-debounce": "3.0.1",
-    "typescript": "^4.8.4",
-    "vite": "^3.1.8",
-    "vitest": "^0.24.3"
+    "rollup": "^3.4.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "throttle-debounce": "5.0.0",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.2"
   }
 }
