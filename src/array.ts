@@ -1,5 +1,4 @@
 import { clamp } from './math'
-import { isDeepEqual } from './equal'
 import type { Arrayable, Nullable } from './types'
 
 /**
@@ -71,18 +70,17 @@ export function uniq<T>(array: readonly T[]): T[] {
 }
 
 /**
- * Unique an Array(one type or muti-type)
+ * Unique an Array by a custom equality function
  *
  * @category Array
  */
-export function uniqueBy<T>(array: readonly T[], equalFn = isDeepEqual): T[] {
+export function uniqueBy<T>(array: readonly T[], equalFn: (a: any, b: any) => boolean): T[] {
   return array.reduce((acc: T[], cur: any) => {
-    const index = acc.findIndex((item: any) => equalFn(cur, item));
-    if (index === -1) {
-      acc.push(cur);
-    }
-    return acc;
-  }, []);
+    const index = acc.findIndex((item: any) => equalFn(cur, item))
+    if (index === -1)
+      acc.push(cur)
+    return acc
+  }, [])
 }
 
 /**
