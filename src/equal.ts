@@ -1,6 +1,6 @@
 import { getTypeName } from './base'
 
-export const isDeepEqual = (value1: any, value2: any): boolean => {
+export function isDeepEqual(value1: any, value2: any): boolean {
   const type1 = getTypeName(value1)
   const type2 = getTypeName(value2)
   if (type1 !== type2)
