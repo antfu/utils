@@ -5,7 +5,7 @@ it('promise', async () => {
   let dummy = 0
 
   const promise = createSingletonPromise(async () => {
-    sleep(10)
+    await sleep(10)
     dummy += 1
     return dummy
   })
@@ -21,7 +21,7 @@ it('promise', async () => {
 
   expect(dummy).toBe(1)
 
-  promise.reset()
+  await promise.reset()
 
   await promise()
 
