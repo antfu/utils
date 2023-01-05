@@ -23,5 +23,5 @@ export function isDeepEqual(value1: any, value2: any): boolean {
       return isDeepEqual(value1[key], value2[key])
     })
   }
-  return value1 === value2
+  return Object.is(value1, value2)
 }
