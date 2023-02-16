@@ -171,7 +171,7 @@ export function move<T>(arr: T[], from: number, to: number) {
 }
 
 /**
- * Clamp a number to the index ranage of an array
+ * Clamp a number to the index range of an array
  *
  * @category Array
  */
