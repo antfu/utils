@@ -180,12 +180,13 @@ export function clampArrayRange(n: number, arr: readonly unknown[]) {
 }
 
 /**
- * Get random items from an array
+ * Get random item(s) from an array
  *
- * @category Array
+ * @param arr
+ * @param quantity - quantity of random items which will be returned
  */
-export function sample<T>(arr: T[], count: number) {
-  return Array.from({ length: count }, _ => arr[Math.round(Math.random() * (arr.length - 1))])
+export function sample<T>(arr: T[], quantity: number) {
+  return Array.from({ length: quantity }, _ => arr[Math.round(Math.random() * (arr.length - 1))])
 }
 
 /**
