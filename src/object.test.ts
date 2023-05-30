@@ -51,4 +51,16 @@ describe('deepMerge', () => {
     const obj2 = { a: ['C'], b: ['D'] }
     expect(deepMerge({}, obj1, obj2)).toEqual({ a: ['C'], b: ['D'] })
   })
+
+  it('prototype pollution 1', () => {
+    const obj = {} as any
+    const obj2 = {} as any
+    const payload = JSON.parse('{"__proto__":{"polluted":"Polluted!"}}')
+
+    expect(obj.polluted).toBeUndefined()
+    expect(obj2.polluted).toBeUndefined()
+    deepMerge(obj, payload)
+    expect(obj.polluted).toBeUndefined()
+    expect(obj2.polluted).toBeUndefined()
+  })
 })

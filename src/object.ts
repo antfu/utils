@@ -82,6 +82,9 @@ export function deepMerge<T extends object = object, S extends object = T>(targe
 
   if (isMergableObject(target) && isMergableObject(source)) {
     objectKeys(source).forEach((key) => {
+      if (key === '__proto__' || key === 'constructor' || key === 'prototype')
+        return
+
       // @ts-expect-error
       if (isMergableObject(source[key])) {
         // @ts-expect-error
