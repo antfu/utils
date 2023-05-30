@@ -68,7 +68,10 @@ export function objectEntries<T extends object>(obj: T) {
 }
 
 /**
- * Deep merge :P
+ * Deep merge
+ *
+ * The first argument is the target object, the rest are the sources.
+ * The target object will be mutated and returned.
  *
  * @category Object
  */
@@ -103,6 +106,62 @@ export function deepMerge<T extends object = object, S extends object = T>(targe
   }
 
   return deepMerge(target, ...sources)
+}
+
+/**
+ * Deep merge
+ *
+ * Differs from `deepMerge` in that it merges arrays instead of overriding them.
+ *
+ * The first argument is the target object, the rest are the sources.
+ * The target object will be mutated and returned.
+ *
+ * @category Object
+ */
+export function deepMergeWithArray<T extends object = object, S extends object = T>(target: T, ...sources: S[]): DeepMerge<T, S> {
+  if (!sources.length)
+    return target as any
+
+  const source = sources.shift()
+  if (source === undefined)
+    return target as any
+
+  if (Array.isArray(target) && Array.isArray(source))
+    target.push(...source)
+
+  if (isMergableObject(target) && isMergableObject(source)) {
+    objectKeys(source).forEach((key) => {
+      if (key === '__proto__' || key === 'constructor' || key === 'prototype')
+        return
+
+      // @ts-expect-error
+      if (Array.isArray(source[key])) {
+        // @ts-expect-error
+        if (!target[key])
+          // @ts-expect-error
+          target[key] = []
+
+        // @ts-expect-error
+        deepMergeWithArray(target[key], source[key])
+      }
+      // @ts-expect-error
+      else if (isMergableObject(source[key])) {
+        // @ts-expect-error
+        if (!target[key])
+          // @ts-expect-error
+          target[key] = {}
+
+        // @ts-expect-error
+        deepMergeWithArray(target[key], source[key])
+      }
+      else {
+        // @ts-expect-error
+        target[key] = source[key]
+      }
+    })
+  }
+
+  return deepMergeWithArray(target, ...sources)
 }
 
 function isMergableObject(item: any): item is Object {
