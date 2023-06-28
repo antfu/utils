@@ -58,7 +58,7 @@ export function template(str: string, ...args: any[]): string {
  * @category String
  * @example
  * ```
- * const result = template(
+ * const result = namedTemplate(
  *   '{greet}! My name is {name}.',
  *   { greet: 'Hello', name: 'Anthony' }
  * ) // Hello! My name is Anthony.
