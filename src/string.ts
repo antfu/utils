@@ -53,7 +53,7 @@ export function template(str: string, ...args: any[]): string {
 
 /**
  * Similar to `template` function, but with named variables for better readability
- * If not fallback is provided, the variable name will be used by default
+ * If no fallback is provided, variable name will be used by default
  *
  * @category String
  * @example
