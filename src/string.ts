@@ -52,7 +52,8 @@ export function template(str: string, ...args: any[]): string {
 }
 
 /**
- * Dead simple named template engine, just like Python's
+ * Similar to `template` function, but with named variables for better readability
+ * If not fallback is provided, the variable name will be used by default
  *
  * @category String
  * @example
