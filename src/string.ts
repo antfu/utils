@@ -51,6 +51,25 @@ export function template(str: string, ...args: any[]): string {
   })
 }
 
+/**
+ * Dead simple named template engine, just like Python's
+ *
+ * @category String
+ * @example
+ * ```
+ * const result = template(
+ *   '{greet}! My name is {name}.',
+ *   { greet: 'Hello', name: 'Anthony' }
+ * ) // Hello! My name is Anthony.
+ * ```
+ */
+export function namedTemplate(str: string, vars: Record<string, any>, fallback: null | undefined | string = null): string {
+  return str.replace(
+    /{(\w+)}/g,
+    (_, variable) => vars[variable] || (fallback ?? variable),
+  )
+}
+
 // port from nanoid
 // https://github.com/ai/nanoid
 const urlAlphabet = 'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
