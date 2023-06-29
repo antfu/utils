@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { capitalize, ensurePrefix, ensureSuffix, namedTemplate, slash, template } from './string'
+import { capitalize, ensurePrefix, ensureSuffix, slash, template } from './string'
 
 it('template', () => {
   expect(
@@ -36,14 +36,14 @@ it('template', () => {
 
 it('namedTemplate', () => {
   expect(
-    namedTemplate(
+    template(
       '{greet}! My name is {name}.',
       { greet: 'Hello', name: 'Anthony' },
     ),
   ).toEqual('Hello! My name is Anthony.')
 
   expect(
-    namedTemplate(
+    template(
       '{a} + {b} = {result}',
       { a: 1, b: 2, result: 3 }
     ),
@@ -51,14 +51,28 @@ it('namedTemplate', () => {
 
   // Without fallback return the variable name
   expect(
-    namedTemplate(
+    template(
       '{10}',
       {},
     ),
   ).toEqual('10')
 
   expect(
-    namedTemplate(
+    template(
+      '{11}',
+      null,
+    ),
+  ).toEqual('undefined')
+
+  expect(
+    template(
+      '{11}',
+      undefined,
+    ),
+  ).toEqual('undefined')
+
+  expect(
+    template(
       '{10}',
       {},
       'unknown'
@@ -66,7 +80,7 @@ it('namedTemplate', () => {
   ).toEqual('unknown')
 
   expect(
-    namedTemplate(
+    template(
       '{10}',
       {},
       ''
