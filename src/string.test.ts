@@ -15,6 +15,7 @@ it('template', () => {
       '{0} + {1} = {2}{3}',
       1,
       '1',
+      // @ts-expect-error disallow non-literal on type
       { v: 2 },
       [2, 3],
     ),
@@ -45,9 +46,16 @@ it('namedTemplate', () => {
   expect(
     template(
       '{a} + {b} = {result}',
-      { a: 1, b: 2, result: 3 }
+      { a: 1, b: 2, result: 3 },
     ),
   ).toEqual('1 + 2 = 3')
+
+  expect(
+    template(
+      '{1} + {b} = 3',
+      { 1: 'a', b: 2 },
+    ),
+  ).toEqual('a + 2 = 3')
 
   // Without fallback return the variable name
   expect(
@@ -75,17 +83,17 @@ it('namedTemplate', () => {
     template(
       '{10}',
       {},
-      'unknown'
+      'unknown',
     ),
   ).toEqual('unknown')
 
   expect(
     template(
-      '{10}',
-      {},
-      ''
+      '{1} {2} {3} {4}',
+      { 4: 'known key' },
+      k => String(+k * 2),
     ),
-  ).toEqual('')
+  ).toEqual('2 4 6 known key')
 })
 
 it('slash', () => {
