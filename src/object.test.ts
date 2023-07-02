@@ -51,6 +51,11 @@ describe('deepMerge', () => {
     const obj2 = { a: ['C'], b: ['D'] }
     expect(deepMerge({}, obj1, obj2)).toEqual({ a: ['C'], b: ['D'] })
   })
+  it('should overide plain value', () => {
+    const obj1 = { a: { x: 1 } }
+    const obj2 = { a: { x: { f: 2 } } } as any
+    expect(deepMerge({}, obj1, obj2)).toEqual({ a: { x: { f: 2 } } })
+  })
 
   it('prototype pollution 1', () => {
     const obj = {} as any
