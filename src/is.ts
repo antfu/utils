@@ -6,10 +6,19 @@ export const isFunction = <T extends Function> (val: any): val is T => typeof va
 export const isNumber = (val: any): val is number => typeof val === 'number'
 export const isString = (val: unknown): val is string => typeof val === 'string'
 export const isObject = (val: any): val is object => toString(val) === '[object Object]'
+export const isObjectEmpty = (val: unknown): boolean => JSON.stringify(val) === '{}'
 export const isUndefined = (val: any): val is undefined => toString(val) === '[object Undefined]'
 export const isNull = (val: any): val is null => toString(val) === '[object Null]'
+export const isArrayEmpty = (val: unknown): boolean => JSON.stringify(val) === '[]'
 export const isRegExp = (val: any): val is RegExp => toString(val) === '[object RegExp]'
 export const isDate = (val: any): val is Date => toString(val) === '[object Date]'
+export function isEmpty(val: unknown): boolean {
+  return isNull(val)
+    || isUndefined(val)
+    || val === ''
+    || isObjectEmpty(val)
+    || isArrayEmpty(val)
+}
 
 // @ts-ignore
 export const isWindow = (val: any): boolean => typeof window !== 'undefined' && toString(val) === '[object Window]'
