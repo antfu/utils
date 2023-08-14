@@ -44,7 +44,7 @@ export function partition<T>(array: readonly T[], f1: PartitionFilter<T>, f2: Pa
 export function partition<T>(array: readonly T[], f1: PartitionFilter<T>, f2: PartitionFilter<T>, f3: PartitionFilter<T>, f4: PartitionFilter<T>, f5: PartitionFilter<T>): [T[], T[], T[], T[], T[], T[]]
 export function partition<T>(array: readonly T[], f1: PartitionFilter<T>, f2: PartitionFilter<T>, f3: PartitionFilter<T>, f4: PartitionFilter<T>, f5: PartitionFilter<T>, f6: PartitionFilter<T>): [T[], T[], T[], T[], T[], T[], T[]]
 export function partition<T>(array: readonly T[], ...filters: PartitionFilter<T>[]): any {
-  const result: T[][] = new Array(filters.length + 1).fill(null).map(() => [])
+  const result: T[][] = Array.from({ length: filters.length + 1 }).fill(null).map(() => [])
 
   array.forEach((e, idx, arr) => {
     let i = 0

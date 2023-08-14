@@ -61,7 +61,7 @@ export function ensureSuffix(suffix: string, str: string) {
  * ```
  */
 export function template(str: string, object: Record<string | number, any>, fallback?: string | ((key: string) => string)): string
-export function template(str: string, ...args: (string | number | BigInt | undefined | null)[]): string
+export function template(str: string, ...args: (string | number | bigint | undefined | null)[]): string
 export function template(str: string, ...args: any[]): string {
   const [firstArg, fallback] = args
 

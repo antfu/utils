@@ -171,7 +171,7 @@ export function deepMergeWithArray<T extends object = object, S extends object =
   return deepMergeWithArray(target, ...sources)
 }
 
-function isMergableObject(item: any): item is Object {
+function isMergableObject(item: any): item is object {
   return isObject(item) && !Array.isArray(item)
 }
 
