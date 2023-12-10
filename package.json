@@ -2,7 +2,7 @@
   "name": "@antfu/utils",
   "type": "module",
   "version": "0.7.6",
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.12.0",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -21,22 +21,21 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.cjs"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "*.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "rollup -c",
     "dev": "nr build --watch",
     "lint": "eslint .",
+    "lint-fix": "nr lint --fix",
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish",
     "start": "esno src/index.ts",
@@ -44,24 +43,24 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.2",
-    "@antfu/ni": "^0.21.5",
-    "@rollup/plugin-alias": "^5.0.0",
-    "@rollup/plugin-commonjs": "^25.0.4",
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@antfu/eslint-config": "^0.43.1",
+    "@antfu/ni": "^0.21.12",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^20.5.0",
     "@types/throttle-debounce": "^5.0.0",
-    "bumpp": "^9.1.1",
-    "eslint": "^8.47.0",
-    "esno": "^0.17.0",
-    "p-limit": "^4.0.0",
-    "rollup": "^3.28.0",
-    "rollup-plugin-dts": "^5.3.1",
-    "rollup-plugin-esbuild": "^5.0.0",
+    "bumpp": "^9.2.1",
+    "eslint": "^8.55.0",
+    "esno": "^4.0.0",
+    "p-limit": "^5.0.0",
+    "rollup": "^4.7.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.0",
     "throttle-debounce": "5.0.0",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.9",
-    "vitest": "^0.34.1"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.7",
+    "vitest": "^1.0.4"
   }
 }

@@ -43,10 +43,20 @@ export default [
   })),
   ...entries.map(input => ({
     input,
-    output: {
-      file: input.replace('src/', '').replace('.ts', '.d.ts'),
-      format: 'esm',
-    },
+    output: [
+      {
+        file: input.replace('src/', 'dist/').replace('.ts', '.d.mts'),
+        format: 'esm',
+      },
+      {
+        file: input.replace('src/', 'dist/').replace('.ts', '.d.ts'),
+        format: 'esm',
+      },
+      {
+        file: input.replace('src/', 'dist/').replace('.ts', '.d.cts'),
+        format: 'cjs',
+      },
+    ],
     external: [],
     plugins: [
       dts({ respectExternal: true }),

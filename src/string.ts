@@ -46,14 +46,14 @@ export function ensureSuffix(suffix: string, str: string) {
  * ) // Hello Inès! My name is Anthony.
  * ```
  *
-* ```
+ * ```
  * const result = namedTemplate(
  *   '{greet}! My name is {name}.',
  *   { greet: 'Hello', name: 'Anthony' }
  * ) // Hello! My name is Anthony.
  * ```
  *
- * * const result = namedTemplate(
+ * const result = namedTemplate(
  *   '{greet}! My name is {name}.',
  *   { greet: 'Hello' }, // name isn't passed hence fallback will be used for name
  *   'placeholder'
