@@ -21,4 +21,4 @@ Opinionated collection of common JavaScript / TypeScript utils by [@antfu](https
 
 ## License
 
-[MIT](./LICENSE) License © 2021 [Anthony Fu](https://github.com/antfu)
+[MIT](./LICENSE) License © 2021-PRESENT [Anthony Fu](https://github.com/antfu)
