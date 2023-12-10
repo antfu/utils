@@ -1,5 +1,6 @@
 export * from './array'
 export * from './base'
+export * from './equal'
 export * from './guards'
 export * from './is'
 export * from './math'
