@@ -22,7 +22,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "default": "./dist/index.cjs"
+      "require": "./dist/index.cjs"
     }
   },
   "main": "dist/index.cjs",
