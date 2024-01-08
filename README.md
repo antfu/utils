@@ -9,7 +9,7 @@ Opinionated collection of common JavaScript / TypeScript utils by [@antfu](https
 - Fully typed - with TSDocs
 - Type utilities - `Arrayable<T>`, `ElementOf<T>`, etc.
 
-> This package is designed to be used as `devDependencies` and bundled into your dist.
+> This package is designed to be used as `dependencies` and bundled into your dist.
 
 ## Sponsors
 
