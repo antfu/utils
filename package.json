@@ -43,7 +43,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.4.4",
+    "@antfu/eslint-config": "^2.6.4",
     "@antfu/ni": "^0.21.12",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^25.0.7",
