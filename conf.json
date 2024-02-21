@@ -6,7 +6,10 @@
         "includePattern": ".+\\.ts(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
-    "plugins": ["typescript"],
+    "plugins": ["jsdoc-plugin-typescript"],
+    "typescript": {
+      "moduleRoot": "src"
+    },
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false,
