@@ -6,7 +6,7 @@
         "includePattern": ".+\\.ts(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
-    "plugins": [],
+    "plugins": ["typescript"],
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false,
