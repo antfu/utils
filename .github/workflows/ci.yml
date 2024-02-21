@@ -71,5 +71,12 @@ jobs:
       - name: Build
         run: nr build
 
+      - name: Documentation
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          recurse: true
+          output_dir: ./docs
+
       - name: Test
         run: nr test
