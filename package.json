@@ -55,6 +55,7 @@
     "eslint": "npm:eslint-ts-patch@8.55.0-1",
     "eslint-ts-patch": "8.55.0-1",
     "esno": "^4.0.0",
+    "jsdoc-plugin-typescript": "^2.2.1",
     "p-limit": "^5.0.0",
     "rollup": "^4.7.0",
     "rollup-plugin-dts": "^6.1.0",
