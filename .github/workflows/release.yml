@@ -7,16 +7,18 @@ on:
 
 jobs:
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
 
-      - run: npx conventional-github-releaser -p angular
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - run: npx changelogithub
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
