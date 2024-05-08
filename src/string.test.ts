@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { capitalize, ensurePrefix, ensureSuffix, slash, template } from './string'
+import { capitalize, ensurePrefix, ensureSuffix, slash, template, unindent } from './string'
 
 it('template', () => {
   expect(
@@ -118,4 +118,46 @@ it('capitalize', () => {
   expect(capitalize('中国')).toEqual('中国')
   expect(capitalize('āÁĂÀ')).toEqual('Āáăà')
   expect(capitalize('\a')).toEqual('A')
+})
+
+it('unindent', () => {
+  expect(
+    unindent`
+      if (a) {
+        b()
+      }
+    `,
+  ).toMatchSnapshot('base')
+
+  expect(
+    unindent`
+          if (a) {
+        b()
+      }
+    `,
+  ).toMatchSnapshot('with leading indent')
+
+  expect(
+    unindent`
+
+          if (a) {
+        b()
+      }
+
+    `,
+  ).toMatchSnapshot('multi-start and end')
+
+  expect(
+    unindent`if (a) {
+  b()
+}`,
+  ).toMatchSnapshot('no start or end')
+
+  expect(
+    unindent`
+                  if (a) {
+                  b()
+              }
+    `,
+  ).toMatchSnapshot('indent deep')
 })
