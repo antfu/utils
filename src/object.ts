@@ -29,12 +29,12 @@ import type { DeepMerge } from './types'
  * // { b: 2 }
  * ```
  */
-export function objectMap<K extends string, V, NK = K, NV = V>(obj: Record<K, V>, fn: (key: K, value: V) => [NK, NV] | undefined): Record<K, V> {
+export function objectMap<K extends string, V, NK extends string | number | symbol = K, NV = V>(obj: Record<K, V>, fn: (key: K, value: V) => [NK, NV] | undefined): Record<NK, NV> {
   return Object.fromEntries(
     Object.entries(obj)
       .map(([k, v]) => fn(k as K, v as V))
       .filter(notNullish),
-  )
+  ) as Record<NK, NV>
 }
 
 /**
