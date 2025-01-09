@@ -1,6 +1,6 @@
+import type { DeepMerge } from './types'
 import { notNullish } from './guards'
 import { isObject } from './is'
-import type { DeepMerge } from './types'
 
 /**
  * Map key/value pairs for an object, and construct a new one
@@ -97,7 +97,6 @@ export function deepMerge<T extends object = object, S extends object = T>(targe
 
         // @ts-expect-error
         if (isMergableObject(target[key])) {
-          // @ts-expect-error
           deepMerge(target[key], source[key])
         }
         else {
