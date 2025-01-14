@@ -201,3 +201,21 @@ export function shuffle<T>(array: T[]): T[] {
   }
   return array
 }
+
+// https://jsbenchmark.com/#eyJjYXNlcyI6W3siaWQiOiJXR01CMEJLVXgwbUJDYVc3NmFHSVciLCJjb2RlIjoibGV0IGEgPSBEQVRBXG5hID0gZmlsdGVyKGEsIGkgPT4gaSAlIDUwID09PSAwKVxuYSA9IGZpbHRlcihhLCBpID0-IGkgJSAxMCA9PT0gMClcbmEgPSBmaWx0ZXIoYSwgaSA9PiBpICUgMiA9PT0gMCkiLCJuYW1lIjoiZmlsdGVyIiwiZGVwZW5kZW5jaWVzIjpbXX0seyJpZCI6Ik9VSnozNU1QTkdhWVZ2eVo3S3A1UiIsImNvZGUiOiJsZXQgYSA9IERBVEFcbmEgPSBmaWx0ZXJJblBsYWNlKGEsIGkgPT4gaSAlIDUwID09PSAwKVxuYSA9IGZpbHRlckluUGxhY2UoYSwgaSA9PiBpICUgMTAgPT09IDApXG5hID0gZmlsdGVySW5QbGFjZShhLCBpID0-IGkgJSAyID09PSAwKSIsIm5hbWUiOiJmaWx0ZXJJblBsYWNlIiwiZGVwZW5kZW5jaWVzIjpbXX1dLCJjb25maWciOnsibmFtZSI6IkJhc2ljIGV4YW1wbGUiLCJwYXJhbGxlbCI6dHJ1ZSwiZ2xvYmFsVGVzdENvbmZpZyI6eyJkZXBlbmRlbmNpZXMiOltdfSwiZGF0YUNvZGUiOiJnbG9iYWxUaGlzLmZpbHRlciA9IGZ1bmN0aW9uIGZpbHRlcihkYXRhLCBwcmVkaWNhdGUpIHtcbiAgcmV0dXJuIGRhdGEuZmlsdGVyKHByZWRpY2F0ZSlcbn1cblxuZ2xvYmFsVGhpcy5maWx0ZXJJblBsYWNlID0gZnVuY3Rpb24gZmlsdGVySW5QbGFjZShkYXRhLCBwcmVkaWNhdGUpIHtcbiAgZm9yIChsZXQgaSA9IGRhdGEubGVuZ3RoOyBpLS07IGk-PTApIHtcbiAgICBpZiAoIXByZWRpY2F0ZShkYXRhW2ldLCBpLCBkYXRhKSlcbiAgICAgIGRhdGEuc3BsaWNlKGksIDEpXG4gIH1cbiAgcmV0dXJuIGRhdGFcbn1cblxucmV0dXJuIFsuLi5BcnJheSgxMDAwKS5rZXlzKCksLi4uQXJyYXkoMTAwMCkua2V5cygpLC4uLkFycmF5KDEwMDApLmtleXMoKV0ifX0
+/**
+ * Filter out items from an array in place.
+ * This function mutates the array.
+ * `predicate` get through the array from the end to the start for performance.
+ *
+ * Expect this function to be faster than using `Array.prototype.filter` on large arrays.
+ *
+ * @category Array
+ */
+export function filterInPlace<T>(array: T[], predicate: (item: T, index: number, arr: T[]) => unknown) {
+  for (let i = array.length; i--; i >= 0) {
+    if (!predicate(array[i], i, array))
+      array.splice(i, 1)
+  }
+  return array
+}
