@@ -1,6 +1,7 @@
 import type { DeepMerge } from './types'
 import { notNullish } from './guards'
-import { isObject } from './is'
+import { isObject, isPrimitive } from './is'
+import { randomStr } from './string'
 
 /**
  * Map key/value pairs for an object, and construct a new one
@@ -210,4 +211,23 @@ export function hasOwnProperty<T>(obj: T, v: PropertyKey) {
   if (obj == null)
     return false
   return Object.prototype.hasOwnProperty.call(obj, v)
+}
+
+const _objectIdMap = /* @__PURE__ */ new WeakMap<WeakKey, string>()
+/**
+ * Get an object's unique identifier
+ *
+ * Same object will always return the same id
+ *
+ * Expect argument to be a non-primitive object/array. Primitive values will be returned as is.
+ *
+ * @category Object
+ */
+export function objectId(obj: WeakKey): string {
+  if (isPrimitive(obj))
+    return obj as unknown as string
+  if (!_objectIdMap.has(obj)) {
+    _objectIdMap.set(obj, randomStr())
+  }
+  return _objectIdMap.get(obj)!
 }

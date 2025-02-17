@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { deepMerge, deepMergeWithArray, objectMap } from './object'
+import { deepMerge, deepMergeWithArray, objectId, objectMap } from './object'
 
 it('objectMap', () => {
   expect(objectMap({}, (...args) => args)).toEqual({})
@@ -76,4 +76,20 @@ describe('deepMergeWithArray', () => {
     const obj2 = { a: ['C'], b: ['D'] }
     expect(deepMergeWithArray({}, obj1, obj2)).toEqual({ a: ['A', 'B', 'C'], b: ['D'] })
   })
+})
+
+it('objectId', () => {
+  const foo = { a: 1, b: 2 }
+  const bar = new Map()
+  // eslint-disable-next-line prefer-regex-literals
+  const baz = new RegExp('foo', 'g')
+
+  expect(objectId(foo)).toBe(objectId(foo))
+  expect(objectId(bar)).toBe(objectId(bar))
+  expect(objectId(baz)).toBe(objectId(baz))
+
+  expect(objectId(foo)).not.toBe(objectId(bar))
+  expect(objectId({})).not.toBe(objectId({}))
+  expect(objectId([])).not.toBe(objectId([]))
+  expect(objectId(/a/)).not.toBe(objectId(/a/))
 })
