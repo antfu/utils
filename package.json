@@ -1,7 +1,7 @@
 {
   "name": "@antfu/utils",
   "type": "module",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "packageManager": "pnpm@10.4.0",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @antfu",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
