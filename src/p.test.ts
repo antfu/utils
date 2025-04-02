@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, expectTypeOf, it } from 'vitest'
 import { p as P } from './p'
 
 const timeout = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
@@ -70,5 +70,12 @@ describe('should', () => {
     catch (e) {
       expect(e).toBeInstanceOf(TypeError)
     }
+  })
+
+  it('should return the correct type', async () => {
+    const p = P([1, 2, 3])
+    expectTypeOf(await p).toEqualTypeOf<number[]>()
+    // @see issue #47
+    expectTypeOf(await p.map(async i => i).map(async i => i)).toEqualTypeOf<number[]>()
   })
 })
