@@ -79,12 +79,11 @@ class PInstance<T = any> extends Promise<Awaited<T>[]> {
     this.promises.clear()
   }
 
-  then(fn?: () => PromiseLike<any>) {
-    const p = this.promise
-    if (fn)
-      return p.then(fn)
-    else
-      return p
+  then<TResult1 = Awaited<T>[], TResult2 = never>(
+    onfulfilled?: ((value: Awaited<T>[]) => TResult1 | PromiseLike<TResult1>) | null,
+    onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | null,
+  ) {
+    return this.promise.then(onfulfilled, onrejected)
   }
 
   catch(fn?: (err: unknown) => PromiseLike<any>) {
