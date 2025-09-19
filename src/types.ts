@@ -42,8 +42,8 @@ export type UnionToIntersection<U> = (U extends unknown ? (k: U) => void : never
  */
 export type ArgumentsType<T> = T extends ((...args: infer A) => any) ? A : never
 
-export type MergeInsertions<T> =
-  T extends object
+export type MergeInsertions<T>
+  = T extends object
     ? { [K in keyof T]: MergeInsertions<T[K]> }
     : T
 
